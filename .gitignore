@@ -1,0 +1,21 @@
+# ── Temporary & generated files ──
+.tmp/
+*.log
+
+# ── Environment secrets ──
+.env
+*.env
+
+# ── Node (not used yet, but future-proofing) ──
+node_modules/
+
+# ── OS junk ──
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Editor configs ──
+.vscode/
+.idea/
+*.swp
+*.swo

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+  <meta name="description" content="DED — Did Every Day. Personal life dashboard tracking GATE exam prep, football matches, and gym workouts.">
+  <title>DED — Did Every Day</title>
+
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#0a0a0f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="DED">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="DED">
+  <meta name="msapplication-TileColor" content="#0a0a0f">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/gate.css">
+  <link rel="stylesheet" href="css/football.css">
+  <link rel="stylesheet" href="css/gym.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+
+  <style>
+    /* Inline critical path styles for instant paint */
+    body { background: #0a0a0f; color: #e8e8ed; }
+  </style>
+</head>
+<body>
+
+  <div class="app-shell">
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- TOP NAVIGATION BAR                                  -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <nav class="top-nav" id="top-nav">
+      <div class="nav-brand">
+        <div class="nav-brand-icon">
+          <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+        </div>
+        <span class="nav-brand-title">DED</span>
+        <div id="sync-status" class="sync-status sync-status--unknown">
+          <span class="sync-dot">⚫</span><span class="sync-text"></span>
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <a class="nav-link active" data-field="home" href="#home">
+          <span>◉</span> Home
+        </a>
+        <a class="nav-link" data-field="gate" href="#gate">
+          <span>📘</span> GATE
+        </a>
+        <a class="nav-link" data-field="football" href="#football">
+          <span>⚽</span> Football
+        </a>
+        <a class="nav-link" data-field="gym" href="#gym">
+          <span>🏋️</span> Gym
+        </a>
+      </div>
+
+      <div class="nav-date"></div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- MAIN CONTENT AREA                                   -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <main class="main-content">
+      <div id="main-view" class="view active">
+        <!-- Dashboards render here via JS -->
+        <div style="display: flex; align-items: center; justify-content: center; min-height: 50vh; flex-direction: column; gap: 1rem;">
+          <div style="font-size: 48px;">📊</div>
+          <div class="text-label">Loading dashboard...</div>
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- SUPABASE CDN (loaded before app scripts)           -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- SCRIPTS (Load order matters)                        -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <script src="js/config.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/sync-engine.js"></script>
+  <script src="js/gate-syllabus-data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/gate.js"></script>
+  <script src="js/football.js"></script>
+  <script src="js/gym.js"></script>
+  <script src="js/app.js"></script>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- PWA Service Worker Registration                     -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('✅ Service Worker registered (scope:', reg.scope, ')'))
+          .catch(err => console.warn('⚠️ SW registration failed:', err));
+      });
+    }
+  </script>
+
+</body>
+</html>

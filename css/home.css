@@ -1,0 +1,167 @@
+/* ============================================================
+   HOME DASHBOARD — Unified summary of all 3 fields
+   Muted blue-grey accent
+   ============================================================ */
+
+.home-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: var(--sp-8);
+}
+
+.home-greeting {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.01em;
+}
+
+.home-date-display {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-top: var(--sp-1);
+}
+
+.home-overall-score {
+  text-align: right;
+}
+
+.home-overall-score__value {
+  font-family: var(--font-mono);
+  font-size: var(--fs-hero);
+  font-weight: var(--fw-bold);
+  color: var(--accent-home);
+  line-height: var(--lh-tight);
+}
+
+.home-overall-score__label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* --- Field Summary Card --- */
+.field-summary-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.field-summary-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+}
+
+.field-summary-card--gate::before { background: var(--accent-gate); }
+.field-summary-card--football::before { background: var(--accent-football); }
+.field-summary-card--gym::before { background: var(--accent-gym); }
+
+.field-summary-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-4);
+  margin-top: var(--sp-4);
+}
+
+.field-metric {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.field-metric__value {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+}
+
+.field-metric__label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* --- Today's Quick View --- */
+.today-quick {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.today-quick__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-2) 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.today-quick__item:last-child {
+  border-bottom: none;
+}
+
+.today-quick__field {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.today-quick__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.today-quick__dot--gate { background: var(--accent-gate); }
+.today-quick__dot--football { background: var(--accent-football); }
+.today-quick__dot--gym { background: var(--accent-gym); }
+
+.today-quick__status {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-tertiary);
+}
+
+.today-quick__status--done {
+  color: var(--color-success);
+}
+
+/* --- Weekly Heat Strip --- */
+.heat-strip {
+  display: flex;
+  gap: var(--sp-1);
+}
+
+.heat-strip__day {
+  flex: 1;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+
+.heat-strip__day.active {
+  background: var(--accent-home);
+  color: var(--bg-root);
+}
+
+.heat-strip__day.partial {
+  background: rgba(124, 139, 165, 0.3);
+  color: var(--accent-home);
+}

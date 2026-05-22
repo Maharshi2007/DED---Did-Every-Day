@@ -1,0 +1,226 @@
+/* ============================================================
+   GYM DASHBOARD — Workout Tracker
+   Orange accent: #f59e0b
+   ============================================================ */
+
+/* --- Gym Hero Toggle --- */
+.gym-hero-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-6);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+}
+
+.gym-hero-toggle.went-to-gym {
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(245, 158, 11, 0.08) 100%);
+  border-color: var(--accent-gym);
+}
+
+.gym-hero-toggle__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.gym-hero-toggle__title {
+  font-family: var(--font-mono);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.gym-hero-toggle__subtitle {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.gym-hero-toggle.went-to-gym .gym-hero-toggle__title {
+  color: var(--accent-gym);
+}
+
+.gym-big-toggle {
+  width: 64px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  position: relative;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.gym-big-toggle__thumb {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: all var(--transition-normal);
+}
+
+.gym-hero-toggle.went-to-gym .gym-big-toggle {
+  background: var(--accent-gym);
+  border-color: var(--accent-gym);
+}
+
+.gym-hero-toggle.went-to-gym .gym-big-toggle__thumb {
+  background: white;
+  transform: translateX(30px);
+}
+
+/* --- Gym Detail Sections --- */
+.gym-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+  margin-top: var(--sp-6);
+  transition: opacity var(--transition-normal);
+}
+
+.gym-details.hidden {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* --- Muscle training section --- */
+.muscle-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.muscle-section__title {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.muscles-selected-count {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--accent-gym);
+  margin-left: var(--sp-2);
+}
+
+/* --- Supplements section --- */
+.supplements-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.supplements-section__title {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--sp-1);
+}
+
+/* --- Gym Stats Card --- */
+.gym-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.gym-stat-item {
+  text-align: center;
+  padding: var(--sp-4);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.gym-stat-item__value {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  color: var(--accent-gym);
+}
+
+.gym-stat-item__label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: var(--sp-1);
+}
+
+/* --- Gym day rating --- */
+.gym-day-rating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-4) var(--sp-5);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.gym-day-rating__label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* --- Weekly gym heat --- */
+.gym-week-strip {
+  display: flex;
+  gap: var(--sp-2);
+  margin-top: var(--sp-2);
+}
+
+.gym-week-day {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-1);
+  padding: var(--sp-2);
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated);
+}
+
+.gym-week-day.went {
+  background: var(--accent-gym-dim);
+}
+
+.gym-week-day__label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.gym-week-day__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border-subtle);
+}
+
+.gym-week-day.went .gym-week-day__dot {
+  background: var(--accent-gym);
+}
+
+@media (max-width: 600px) {
+  .gym-stats-grid { grid-template-columns: 1fr; }
+  .gym-hero-toggle { padding: var(--sp-4); }
+}
