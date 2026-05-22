@@ -10,7 +10,7 @@ A personal life dashboard PWA tracking three pillars of daily growth:
 
 ## 🌐 Live
 
-**→ [https://Maharshi2007.github.io/DED-Did-Every-Day/](https://Maharshi2007.github.io/DED-Did-Every-Day/)**
+**→ [https://Maharshi2007.github.io/DED---Did-Every-Day/](https://Maharshi2007.github.io/DED---Did-Every-Day/)**
 
 ## ✨ Features
 
@@ -37,8 +37,8 @@ A personal life dashboard PWA tracking three pillars of daily growth:
 
 1. **Clone** the repo:
    ```bash
-   git clone https://github.com/Maharshi2007/DED-Did-Every-Day.git
-   cd DED-Did-Every-Day
+   git clone https://github.com/Maharshi2007/DED---Did-Every-Day.git
+   cd "DED---Did-Every-Day"
    ```
 
 2. **Open** `index.html` in a browser — that's it. No build step.
